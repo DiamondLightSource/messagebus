@@ -1,0 +1,12 @@
+apiVersion: v2
+name: rabbitmq
+description: A central RabbitMQ message broker
+type: application
+
+version: 0.1.0
+
+dependencies:
+  - name: rabbitmq
+    repository: https://charts.bitnami.com/bitnami
+    version: 14.6.6
+    condition: rabbitmq.enabled

@@ -1,0 +1,8 @@
+rabbitmq:
+  enabled: true
+  replicaCount: 5
+  networkPolicy:
+    enabled: false
+  service:
+    type: LoadBalancer
+    loadBalancerIP: "172.23.169.235"
