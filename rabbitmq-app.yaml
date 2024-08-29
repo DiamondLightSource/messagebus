@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+    name: rabbitmq
+    finalizers:
+      - resources-finalizer.argocd.argoproj.io
+spec:
+  project: messagebus
+  source:
+    repoURL: https://github.com/DiamondLightSource/messagebus
+    path: charts/rabbitmq
+    targetRevision: HEAD
+  destination:
+    namespace: messagebus
+    name: argus 
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
