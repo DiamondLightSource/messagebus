@@ -1,6 +1,7 @@
 rabbitmq:
   enabled: true
   replicaCount: 3
+  podManagementPolicy: Parallel
   networkPolicy:
     enabled: false
   service:
