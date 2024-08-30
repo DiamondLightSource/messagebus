@@ -1,6 +1,6 @@
 rabbitmq:
   enabled: true
-  replicaCount: 5
+  replicaCount: 3
   networkPolicy:
     enabled: false
   service:
