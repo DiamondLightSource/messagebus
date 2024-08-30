@@ -7,6 +7,13 @@ rabbitmq:
   service:
     type: LoadBalancer
     loadBalancerIP: "172.23.169.235"
+    managerPortEnabled: true
+  ingress:
+    enabled: true
+    hostname: messagebus.diamond.ac.uk
+    pathType: Prefix
+    path: /
+    ingressClassName: nginx
   auth:
     existingPasswordSecret: '{{ .Release.Name }}'
     existingErlangSecret: '{{ .Release.Name }}'
