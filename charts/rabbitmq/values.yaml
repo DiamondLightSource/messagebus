@@ -4,6 +4,7 @@ rabbitmq:
   podManagementPolicy: Parallel
   networkPolicy:
     enabled: false
+  resourcesPreset: "medium"
   service:
     type: LoadBalancer
     loadBalancerIP: "172.23.169.235"
