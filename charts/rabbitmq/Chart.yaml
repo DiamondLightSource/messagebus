@@ -3,7 +3,7 @@ name: rabbitmq
 description: A central RabbitMQ message broker
 type: application
 
-version: 0.5.0
+version: 0.6.0
 
 dependencies:
   - name: rabbitmq
