@@ -1,0 +1,8 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  name: {{ .Release.Name }}-erlang
+  namespace: {{ .Release.Namespace }}
+spec:
+  encryptedData:
+    rabbitmq-erlang-cookie: AgCnv8k+RSH5sZhA8gcWUAaasC/t3ce++MJJdxbDZzkJWgPw+oSU+BrBgETu0rjbMC8+6X3wZixy21wjBLgQZYMDDyvaAMqW+oPah0IObzGrw1ojnB9oxSt+I4uSIbcvyUd86g//+DqyyPzMSBlX60iakJz+pzeL6O/KVbBpBdUYJP8BPam2Bdn/4gtYl+e67LvAS3r4indgCRwdfNjkXLqpLeLxUM/zML3zp4G5RKYC73pRHKspLXtxt9NLG3ThDpYNXsBIPHWOQKpgF8I9M/vp2HNhVCHarSOq0dzxtovhgzp6nxfoiP+3QSvFKEC8K9XveTZJbtbJ8IIX3UGFVJUpcDgeXoZTbNCyTTQyFbBcZ5JMlif1kqPw2slYqylKvU+nph7GLfZNgbJ1YCw7uaD7WnTc/qCODmyfPGvVKoe9LWaFr0ChkwnibqK/FND/xx7whPf6kSsvhhZfLR2xR0LMqr6AkiRp5MaDmykuAJetF+0w0qadf2F5b5MoQTXr5R1b4ek8TvL/8SW2tPDUNdegwwtSj5TsYwXmhNgge6cdQLjHZxWkNIwF50D5jKtRMcrw4S0eHqnQgg4Ys6h6JESb6sRH2wctB5N8THiq7IvjQlgbvC+ZvPl1KoIXbBROFlP3nScMdVIw5wsFXOLCqpTk7ao0TIsT8ZjaWxjuCV6nGIG/Fz+VqTpkObcec4PYRfrMU2yESdJHubdWq/UtE+vBd5h34u6ysknPZa/j2njce7S+Cbt2E+a7
