@@ -27,10 +27,15 @@ spec:
         - '.data."tls.crt"'
         - '.data."tls.key"'
     - kind: Secret
+      name: rabbitmq-erlang
+      namespace: messagebus
+      jqPathExpressions:
+        - '.data."rabbitmq-erlang-cookie"'
+    - kind: Secret
       name: rabbitmq
       namespace: messagebus
-      jqPathExpressions
-        - '.data."rabbitmq-erlang-cookie"'
+      jqPathExpressions:
+        - '.data."rabbitmq-password"'
   syncPolicy:
     automated:
       prune: true
