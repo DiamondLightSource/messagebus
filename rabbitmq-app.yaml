@@ -12,8 +12,29 @@ spec:
     targetRevision: HEAD
   destination:
     namespace: messagebus
-    name: argus 
+    name: argus
+  ignoreDifferences:
+    - kind: Secret
+      name: rabbitmq-load-definition
+      namespace: messagebus
+      jqPathExpressions:
+        - '.stringData."load_definition.json" | fromjson | .users[] | select(.name="user") | .password'
+    - kind: Secret
+      name: rabbitmq-certs
+      namespace: messagebus
+      jqPathExpressions:
+        - '.data."ca.crt"'
+        - '.data."tls.crt"'
+        - '.data."tls.key"'
+    - kind: Secret
+      name: rabbitmq
+      namespace: messagebus
+      jqPathExpressions
+        - '.data."rabbitmq-erlang-cookie"'
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - RespectingIgnoreDifferences=true
