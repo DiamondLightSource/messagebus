@@ -1,0 +1,22 @@
+{{ $users := list ( dict "name" "admin" "password" ( randAlphaNum 24 ) "tags" ( list "administrator" ) ) }}
+{{ $vhosts := list }}
+{{ $permissions := list }}
+{{ range $vname, $vparam := .Values.rabbitmq.loadDefinition.vhosts }}
+  {{ if $vparam.enabled }}
+    {{ $metadata := dict "description" $vparam.description "tags" list}}
+    {{ $vhosts = append $vhosts ( dict "name" $vname "description" $vparam.description "tags" list "metadata" $metadata ) }}
+    {{ range $user := $vparam.users }}
+    {{ $permissions = append $permissions ( dict "user" $user "vhost" $vname "configure" ".*" "write" ".*" "read" ".*" ) }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ $definitions := dict "users" $users "vhosts" $vhosts "permissions" $permissions }}
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ .Release.Name }}-load-definition
+  namespace: {{ .Release.Namespace }}
+type: Opaque
+stringData:
+  load_definition.json: |-
+    {{- $definitions | mustToPrettyJson | nindent 4 }}

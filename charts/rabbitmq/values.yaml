@@ -25,6 +25,15 @@ rabbitmq:
   loadDefinition:
     enabled: true
     existingSecret: rabbitmq-load-definition
+    vhosts:
+      "/":
+        enabled: true
+        description: "Default virtual host"
+        users: ["admin"]
+      testing:
+        enabled: true
+        description: "Extra vhost for testing purposes"
+        users: ["admin"]
   extraConfiguration: |
     listeners.tcp = none
     load_definitions = /app/load_definition.json
