@@ -1,5 +1,7 @@
 rabbitmq:
   enabled: true
+  image:
+    repository: bitnamilegacy/rabbitmq
   replicaCount: 3
   podManagementPolicy: Parallel
   networkPolicy:
